@@ -18,9 +18,8 @@ import jakarta.xml.bind.annotation.XmlType;
  * marcamos los campos de nuestro inter�s.
  */
 
-@XmlRootElement(name="Empresa")
-@XmlType(propOrder = { "nombreEmpresa", "idEmpresa", "direccion",
-		"numEmpleados", "empleados" })
+//@XmlRootElement(name="Empresa")
+//@XmlType(propOrder = { "nombreEmpresa", "idEmpresa", "direccion", "numEmpleados", "empleados" })
 public class Empresa  {
 
 
@@ -34,7 +33,7 @@ public class Empresa  {
 		return idEmpresa;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setIdEmpresa(int idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
@@ -43,7 +42,7 @@ public class Empresa  {
 		return nombreEmpresa;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
 	}
@@ -52,7 +51,7 @@ public class Empresa  {
 		return direccion;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
@@ -61,7 +60,7 @@ public class Empresa  {
 		return numEmpleados;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setNumEmpleados(int numEmpleados) {
 		this.numEmpleados = numEmpleados;
 	}
@@ -70,7 +69,7 @@ public class Empresa  {
 		return empleados;
 	}
 
-	@XmlElement
+	//@XmlElement
 	public void setEmpleados(ArrayList<Empleado> empleados) {
 		this.empleados = empleados;
 	}
