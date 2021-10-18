@@ -22,6 +22,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.junit.Test;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -32,10 +33,10 @@ import org.xml.sax.SAXException;
 
 import com.thoughtworks.xstream.XStream;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
+//import jakarta.xml.bind.JAXBContext;
+//import jakarta.xml.bind.JAXBException;
+//import jakarta.xml.bind.Marshaller;
+//import jakarta.xml.bind.Unmarshaller;
 import modelo.Empleado;
 import modelo.Empresa;
 
@@ -52,11 +53,9 @@ class Main {
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
 	}
-
+	
 	private static void ejemploEscribirXSTREAM() {
-
 		try {
-
 			System.out.println("Comienza el proceso de creación del fichero a XML...");
 
 			XStream xstream = new XStream();
@@ -223,52 +222,52 @@ class Main {
 	}
 
 	private static void ejemploJaxb() {
-		long time = System.currentTimeMillis();
-		System.out.println("Inicio: " + new Date(time));
-		Empresa cc = new Empresa();
-		cc.setIdEmpresa(1);
-		cc.setDireccion("En la nube");
-		cc.setNombreEmpresa("IES");
-		cc.setNumEmpleados(10);
-
-		ArrayList<Empleado> alCU = new ArrayList<Empleado>();
-		int init = 20000;
-		for (int i = 1; i < 10; i++) {
-			Empleado cu = new Empleado();
-			cu.setId(i);
-			cu.setActivo(true);
-			cu.setNumeroEmpl(init++);
-			cu.setNombre("Empleado " + i);
-			cu.setTitulo("SW Architect");
-			cu.setFechaAlta(new Date(System.currentTimeMillis()));
-
-			alCU.add(cu);
-		}
-
-		cc.setEmpleados(alCU);
-
-		JAXBContext context;
-		try {
-			context = JAXBContext.newInstance(Empresa.class);
-
-			// Si las clases a serializar están en otro paquete se indica el paquete
-			// al crear el marshall
-			Marshaller marshaller = context.createMarshaller();
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			// Provincia provincia = fillProvincia();
-			// Mostramos el documento XML generado por la salida estandar
-			marshaller.marshal(cc, System.out);
-			// guardamos el objeto serializado en un documento XML
-			marshaller.marshal(cc, Files.newOutputStream(Paths.get(JAXB_XML_FILE)));
-			Unmarshaller unmarshaller = context.createUnmarshaller();
-			// Deserealizamos a partir de un documento XML
-			Empresa empresa = (Empresa) unmarshaller.unmarshal(Files.newInputStream(Paths.get(JAXB_XML_FILE)));
-			System.out.println("********* Empresa cargado desde fichero XML***************");
-			// Mostramos por linea de comandos el objeto Java obtenido
-			// producto de la deserialziacion
-			marshaller.marshal(empresa, System.out);
-		} catch (JAXBException | IOException e) {
-			e.printStackTrace();
-		}
+//		long time = System.currentTimeMillis();
+//		System.out.println("Inicio: " + new Date(time));
+//		Empresa cc = new Empresa();
+//		cc.setIdEmpresa(1);
+//		cc.setDireccion("En la nube");
+//		cc.setNombreEmpresa("IES");
+//		cc.setNumEmpleados(10);
+//
+//		ArrayList<Empleado> alCU = new ArrayList<Empleado>();
+//		int init = 20000;
+//		for (int i = 1; i < 10; i++) {
+//			Empleado cu = new Empleado();
+//			cu.setId(i);
+//			cu.setActivo(true);
+//			cu.setNumeroEmpl(init++);
+//			cu.setNombre("Empleado " + i);
+//			cu.setTitulo("SW Architect");
+//			cu.setFechaAlta(new Date(System.currentTimeMillis()));
+//
+//			alCU.add(cu);
+//		}
+//
+//		cc.setEmpleados(alCU);
+//
+//		JAXBContext context;
+//		try {
+//			context = JAXBContext.newInstance(Empresa.class);
+//
+//			// Si las clases a serializar están en otro paquete se indica el paquete
+//			// al crear el marshall
+//			Marshaller marshaller = context.createMarshaller();
+//			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//			// Provincia provincia = fillProvincia();
+//			// Mostramos el documento XML generado por la salida estandar
+//			marshaller.marshal(cc, System.out);
+//			// guardamos el objeto serializado en un documento XML
+//			marshaller.marshal(cc, Files.newOutputStream(Paths.get(JAXB_XML_FILE)));
+//			Unmarshaller unmarshaller = context.createUnmarshaller();
+//			// Deserealizamos a partir de un documento XML
+//			Empresa empresa = (Empresa) unmarshaller.unmarshal(Files.newInputStream(Paths.get(JAXB_XML_FILE)));
+//			System.out.println("********* Empresa cargado desde fichero XML***************");
+//			// Mostramos por linea de comandos el objeto Java obtenido
+//			// producto de la deserialziacion
+//			marshaller.marshal(empresa, System.out);
+//		} catch (JAXBException | IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 }

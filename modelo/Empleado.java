@@ -2,12 +2,12 @@ package modelo;
 
 import java.util.Date;
 
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
+//import jakarta.xml.bind.annotation.XmlElement;
+//import jakarta.xml.bind.annotation.XmlRootElement;
 
 
 
-@XmlRootElement(name="Empleado")
+//@XmlRootElement(name="Empleado")
 public class Empleado {
  
     private int id;
@@ -21,7 +21,7 @@ public class Empleado {
         return id;
     }
  
-    @XmlElement
+//    @XmlElement
     public void setId(int id) {
         this.id = id;
     }
@@ -30,7 +30,7 @@ public class Empleado {
         return nombre;
     }
  
-    @XmlElement
+//    @XmlElement
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -39,7 +39,7 @@ public class Empleado {
         return titulo;
     }
  
-    @XmlElement
+//    @XmlElement
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -48,7 +48,7 @@ public class Empleado {
         return activo;
     }
  
-    @XmlElement
+//    @XmlElement
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
@@ -57,7 +57,7 @@ public class Empleado {
         return numeroEmpl;
     }
  
-    @XmlElement
+//    @XmlElement
     public void setNumeroEmpl(Integer numeroEmpl) {
         this.numeroEmpl = numeroEmpl;
     }
@@ -66,7 +66,7 @@ public class Empleado {
         return fechaAlta;
     }
  
-    @XmlElement
+//    @XmlElement
     public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
