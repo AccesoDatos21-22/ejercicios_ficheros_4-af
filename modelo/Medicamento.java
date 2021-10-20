@@ -1,5 +1,7 @@
 package modelo;
 
+import java.text.DecimalFormat;
+
 public class Medicamento {
 	
 	public final static float IVA = 0.04f;
@@ -7,13 +9,23 @@ public class Medicamento {
 	private String nombre; // tamaño 30, 60 bytes
 	private double precio; // 8 bytes
 	private int cod; // 4 bytes
+	private int stock; // 4 bytes
+	private int stockMaximo; // 4 bytes
+	private int stockMinimo; // 4 bytes
+	private int codProveedor; // 4 bytes
+	
+	
 	
 	public String getNombre() {
 		return nombre;
 	}
 	
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		if (nombre.length() > 50) {
+			this.nombre = nombre.substring(0, 50);
+		} else {
+			this.nombre = nombre;
+		}
 	}
 	
 	public double getPrecio() {
@@ -21,7 +33,9 @@ public class Medicamento {
 	}
 	
 	public void setPrecio(double precio) {
-		this.precio = precio;
+		DecimalFormat df = new DecimalFormat("#.##");
+		
+		this.precio = Double.valueOf(df.format(precio));
 	}
 	
 	public int getCod() {
@@ -64,10 +78,13 @@ public class Medicamento {
 		this.codProveedor = codProveedor;
 	}
 	
-	private int stock; // 4 bytes
-	private int stockMaximo; // 4 bytes
-	private int stockMinimo; // 4 bytes
-	private int codProveedor; // 4 bytes
-
-
+	@Override
+	public String toString() {
+		return
+				"Código: " + cod
+						+ "\n" + "Nombre: " + nombre
+						+ "\n" + "Precio: " + precio + "€"
+						+ "\n" + "Stock: " + stock
+						+ "\n" + "Proveedor: " + codProveedor;
+	}
 }
