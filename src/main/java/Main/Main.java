@@ -46,6 +46,8 @@ class Main {
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
+		
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
 		// ejemploLeerDOM();
