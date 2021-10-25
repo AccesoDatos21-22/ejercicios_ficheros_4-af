@@ -1,6 +1,8 @@
 package modelo;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +28,12 @@ public class JCCPokemon implements Serializable {
 	
 	public Date getFechaLanzamiento() {
 		return fechaLanzamiento;
+	}
+	
+	public String getFechaLanzamientoString() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		return dateFormat.format(fechaLanzamiento);
 	}
 	
 	public void setFechaLanzamiento(Date fechaLanzamiento) {

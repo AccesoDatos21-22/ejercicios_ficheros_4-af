@@ -92,6 +92,15 @@ class Main {
 		
 		jaxb.guardar(pokemons);
 		
+		JCCPokemon pokemons2 = jaxb.leer();
+		
+		System.out.println("Fecha de lanzamiento=" + pokemons2.getFechaLanzamientoString());
+		System.out.println("Numero de cartas=" + pokemons2.getNumCartas());
+		
+		for (Pokemon pokemon : pokemons2.getPokemones()) {
+			System.out.println(pokemon.toString());
+		}
+		
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
 		// ejemploLeerDOM();
