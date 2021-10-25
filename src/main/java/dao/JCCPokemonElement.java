@@ -8,11 +8,11 @@ public class JCCPokemonElement {
 	private Document document;
 	private Element raiz;
 	
-	public JCCPokemonElement(Document document) {
+	public JCCPokemonElement(Document document, Element main) {
 		this.document = document;
 		
 		raiz = document.createElement("Pokemon");
-		document.getDocumentElement().appendChild(raiz);
+		main.appendChild(raiz);
 	}
 	
 	public void appendChild(String key, Object value) {

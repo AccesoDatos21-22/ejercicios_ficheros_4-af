@@ -56,4 +56,15 @@ public class Pokemon implements Serializable {
 	public void setDefensa(int defensa) {
 		this.defensa = defensa;
 	}
+	
+	@Override
+	public String toString() {
+		return "Pokemon{" +
+				"nombre='" + nombre + '\'' +
+				", vida=" + vida +
+				", velocidad=" + velocidad +
+				", ataque=" + ataque +
+				", defensa=" + defensa +
+				'}';
+	}
 }
