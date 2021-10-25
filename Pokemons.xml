@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Pokemons>
+    <FechaLanzamiento>2013-03-20</FechaLanzamiento>
+    <NumCartas>3</NumCartas>
+    <Pokemon>
+        <nombre>Pikachu</nombre>
+        <vida>3</vida>
+        <velocidad>2</velocidad>
+        <ataque>4</ataque>
+        <defensa>2</defensa>
+    </Pokemon>
+    <Pokemon>
+        <nombre>Raichu</nombre>
+        <vida>30</vida>
+        <velocidad>20</velocidad>
+        <ataque>40</ataque>
+        <defensa>20</defensa>
+    </Pokemon>
+    <Pokemon>
+        <nombre>Charmander</nombre>
+        <vida>40</vida>
+        <velocidad>50</velocidad>
+        <ataque>10</ataque>
+        <defensa>10</defensa>
+    </Pokemon>
+</Pokemons>

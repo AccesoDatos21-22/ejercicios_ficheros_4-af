@@ -7,8 +7,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,6 +25,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import dao.JCCPokemonJAXB;
+import modelo.JCCPokemon;
+import modelo.Pokemon;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -46,6 +52,46 @@ class Main {
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
+		
+		// Ejercicio 5
+		JCCPokemon pokemons = new JCCPokemon();
+		
+		Calendar calendar = new GregorianCalendar(2013,2,20);
+		pokemons.setFechaLanzamiento(calendar.getTime());
+		pokemons.setNumCartas(3);
+		
+		Pokemon pikachu = new Pokemon();
+		pikachu.setNombre("Pikachu");
+		pikachu.setVida(3);
+		pikachu.setVelocidad(2);
+		pikachu.setAtaque(4);
+		pikachu.setDefensa(2);
+		
+		pokemons.add(pikachu);
+		
+		Pokemon raichu = new Pokemon();
+		raichu.setNombre("Raichu");
+		raichu.setVida(30);
+		raichu.setVelocidad(20);
+		raichu.setAtaque(40);
+		raichu.setDefensa(20);
+		
+		pokemons.add(raichu);
+		
+		Pokemon charmander = new Pokemon();
+		charmander.setNombre("Charmander");
+		charmander.setVida(40);
+		charmander.setVelocidad(50);
+		charmander.setAtaque(10);
+		charmander.setDefensa(10);
+		
+		pokemons.add(charmander);
+		
+		JCCPokemonJAXB jaxb = new JCCPokemonJAXB();
+		
+		jaxb.guardar(pokemons);
+		
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
 		// ejemploLeerDOM();
