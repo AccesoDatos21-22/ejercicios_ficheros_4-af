@@ -1,19 +1,60 @@
 package dao;
 
+import jdk.swing.interop.SwingInterOpUtils;
 import modelo.Medicamento;
-import org.junit.Test;
+//import org.junit.Test;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 
-public class MedicamentoDAOImpl implements MedicamentoDAO {
+public class MedicamentoDAOImpl implements MedicamentoDAO  {
+	private static ByteArrayOutputStream escribir=null;
+	private static ObjectOutputStream salida=null;
+	private static byte []array=null;
+	private static ArrayList<Medicamento> miLista = null;
 	@Override
 	public boolean guardar(Medicamento medicamento) {
-		return false;
+		RandomAccessFile fichero =null;
+		try {
+			File f = new File("C:\\Users\\Fernando\\textos\\d.txt");
+
+			if(!f.exists()){
+				f.createNewFile();
+
+			}
+			 fichero = new RandomAccessFile(f, "rw");
+			fichero.seek(fichero.length());
+			//fichero.writeBytes(medicamento.toString());
+			escribir= new ByteArrayOutputStream();
+			salida = new ObjectOutputStream(escribir);
+			salida.writeObject(miLista);
+
+
+			// Cerramos el objeto.
+			salida.close();
+			//array = escribir.toByteArray();
+			fichero.write(escribir.toByteArray());
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+		try {
+			if (fichero != null) {
+				fichero.close();
+			}
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+		return true;
 	}
 	
-	@Test
+	/*@Test
 	public static void testGuardar() {
 		Medicamento medicamento = new Medicamento();
 		medicamento.setNombre("ParacetamolTest");
@@ -30,12 +71,19 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.borrar(medicamento);
 	}
-	
+	*/
 	@Override
 	public Medicamento buscar(String nombre) {
+		boolean existe = miLista.contains("nombre :"+nombre);
+		if (existe) {
+			System.out.println("El elemento si existe en la lista");
+		} else {
+			System.out.println("El elemento no existe");
+		}
+
 		return null;
 	}
-	
+	/*
 	@Test
 	public static void testBuscar() {
 		Medicamento medicamento = new Medicamento();
@@ -55,12 +103,14 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.borrar(medicamento);
 	}
-	
+	*/
 	@Override
 	public boolean actualizar(Medicamento medicamento) {
+	miLista.add(medicamento);
+	guardar(medicamento);
 		return false;
 	}
-	
+	/*
 	@Test
 	public static void testActualizar() {
 		Medicamento medicamento = new Medicamento();
@@ -80,12 +130,13 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.borrar(medicamento);
 	}
-	
+	*/
 	@Override
 	public boolean borrar(Medicamento medicamento) {
+		miLista.remove(medicamento);
 		return false;
 	}
-	
+	/*
 	@Test
 	public static void testBorrar() {
 		Medicamento medicamento = new Medicamento();
@@ -103,12 +154,28 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		assertEquals(true, medicamentoDAO.borrar(medicamento));
 	}
-	
+	*/
 	@Override
 	public List<Medicamento> leerTodos() {
-		return null;
+
+		try {
+			miLista = new ArrayList<>();
+			ObjectInputStream leyendoFichero = new ObjectInputStream(
+					new FileInputStream("C:\\Users\\Alumno\\textos\\doc.txt"));
+			miLista.add((Medicamento) leyendoFichero.readObject());
+			leyendoFichero.close();
+
+			System.out.println("ok!");
+			System.out.println("Datos leídos del fichero:");
+
+
+
+		}catch(Exception e) {
+			System.out.println( e.getMessage() );
+		}
+		return miLista;
 	}
-	
+	/*
 	@Test
 	public static void testLeerTodos() {
 		Medicamento medicamento = new Medicamento();
@@ -146,5 +213,5 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		}
 		
 		assertEquals(true, get1 && get2);
-	}
+	}*/
 }

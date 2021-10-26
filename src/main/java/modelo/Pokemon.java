@@ -1,12 +1,12 @@
 package modelo;
-
+/*
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
-
+*/
 import java.io.Serializable;
 
-@XmlRootElement(name="Pokemon")
-@XmlType(propOrder = { "nombre", "vida", "velocidad", "ataque", "defensa" })
+//@XmlRootElement(name="Pokemon")
+//@XmlType(propOrder = { "nombre", "vida", "velocidad", "ataque", "defensa" })
 
 public class Pokemon implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -1,5 +1,5 @@
 package modelo;
-
+/*
 import java.util.ArrayList;
 
 import jakarta.xml.bind.annotation.XmlElement;
@@ -16,7 +16,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * se escribir�n los atributos en el xml resultante.Finalmente usando XmlElement
  * en el setter de los atributos que nos interesa que se incluyan en el xml,
  * marcamos los campos de nuestro inter�s.
- */
+
 
 @XmlRootElement(name="Empresa")
 @XmlType(propOrder = { "nombreEmpresa", "idEmpresa", "direccion",
@@ -75,3 +75,4 @@ public class Empresa  {
 		this.empleados = empleados;
 	}
 }
+*/

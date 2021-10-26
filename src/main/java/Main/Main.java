@@ -6,12 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,9 +23,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import dao.FarmaciaDOM;
+import dao.FarmaciaXSTREAM;
 import dao.JCCPokemonJAXB;
-import modelo.JCCPokemon;
-import modelo.Pokemon;
+import dao.MedicamentoDAOImpl;
+import modelo.*;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -37,13 +37,13 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 import com.thoughtworks.xstream.XStream;
-
+/*
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import modelo.Empleado;
-import modelo.Empresa;
+*/
+import static dao.FarmaciaXSTREAM.*;
 
 class Main {
 
@@ -51,7 +51,9 @@ class Main {
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner teclado = new Scanner(System.in);
+
 		System.out.println(System.getProperty("user.dir"));
 		
 		// Ejercicio 5
@@ -106,8 +108,69 @@ class Main {
 		// ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
-	}
+		Medicamento medicamento = new Medicamento();
+		medicamento.setNombre("ibunoTest");
+		medicamento.setPrecio(2.90);
+		medicamento.setCod(112);
+		medicamento.setStock(5);
+		medicamento.setStockMaximo(7);
+		medicamento.setStockMinimo(3);
+		medicamento.setCodProveedor(1234);
+		MedicamentoDAOImpl medi = new MedicamentoDAOImpl();
+		List<Medicamento> miLista = medi.leerTodos();
+		for (int i = 0; i < miLista.size(); i++) {
+			System.out.println("Medicamentos[" + i + "] = " + miLista.get(i));
+		}
+		medi.actualizar(medicamento);
+		medi.actualizar(medicamento);
+		medi.actualizar(medicamento);
+		medi.actualizar(medicamento);
+		medi.borrar(medicamento);
+		System.out.println("Escribe medicamento para comprobar si esta en stock");
 
+		medi.buscar(teclado.nextLine());
+
+
+	for (int i = 0; i < miLista.size(); i++) {
+			System.out.println("Medicamentos[" + i + "] = " + miLista.get(i));
+		}
+		medi.borrar(medicamento);
+		for (int i = 0; i < miLista.size(); i++) {
+			System.out.println("Medicamentos[" + i + "] = " + miLista.get(i));
+		}
+		String nombre_archivo = "Medicamentos";
+		ArrayList cod = new ArrayList();
+		ArrayList nom = new ArrayList();
+		ArrayList pre = new ArrayList();
+		ArrayList stock = new ArrayList();
+		ArrayList prov = new ArrayList();
+
+		cod.add("10");
+		nom.add("iburpofeno");
+		pre.add("1.2");
+		stock.add("14");
+		prov.add("1234");
+
+		cod.add("11");
+		nom.add("paracetamol");
+		pre.add("1.5");
+		stock.add("23");
+		prov.add("1224");
+
+
+
+
+
+		try {
+			FarmaciaDOM.guardar(nombre_archivo, cod, nom,pre,stock,prov);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		//FarmaciaDOM.leer(Path.of("C:\\Users\\Fernando\\textos\\Medicamentos.xml"));
+		FarmaciaXSTREAM.guardad(medicamento);
+	}
+	/*
 	private static void ejemploEscribirXSTREAM() {
 
 		try {
@@ -180,7 +243,7 @@ class Main {
         }
 
 	}
-
+*/
 	private static void ejemploLeerDOM() {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
@@ -276,7 +339,7 @@ class Main {
 		raiz.appendChild(elem);
 		elem.appendChild(text);
 	}
-
+/*
 	private static void ejemploJaxb() {
 		long time = System.currentTimeMillis();
 		System.out.println("Inicio: " + new Date(time));
@@ -325,5 +388,5 @@ class Main {
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
