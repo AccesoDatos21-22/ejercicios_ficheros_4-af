@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71abb6ae-b9bf-45b0-b531-2fec577e796a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/MedicamentoDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/MedicamentoDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/modelo/Medicamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/modelo/Medicamento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FarmaciaDOM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FarmaciaDOM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FarmaciaXSTREAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FarmaciaXSTREAM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Empresa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Medicamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Medicamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Pokemon.java" afterDir="false" />
-    </list>
+    <list default="true" id="71abb6ae-b9bf-45b0-b531-2fec577e796a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
