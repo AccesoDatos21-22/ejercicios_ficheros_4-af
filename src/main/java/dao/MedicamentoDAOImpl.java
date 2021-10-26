@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class MedicamentoDAOImpl implements MedicamentoDAO {
 	@Override
@@ -26,7 +26,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		dao.MedicamentoDAOImpl medicamentoDAO = new dao.MedicamentoDAOImpl();
 		
-		assertEquals(true, medicamentoDAO.guardar(medicamento));
+		assertTrue(medicamentoDAO.guardar(medicamento));
 		
 		medicamentoDAO.borrar(medicamento);
 	}
@@ -51,7 +51,10 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.guardar(medicamento);
 		
-		assertEquals(true, medicamentoDAO.buscar("ParacetamolTest"));
+		boolean mustBeTrue1 = medicamentoDAO.buscar("ParacetamolTest") != null;
+		boolean mustBeTrue2 = medicamentoDAO.buscar("ParacetamolDoesNotExist") == null;
+		
+		assertTrue(mustBeTrue1 && mustBeTrue2);
 		
 		medicamentoDAO.borrar(medicamento);
 	}
@@ -76,7 +79,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.guardar(medicamento);
 		
-		assertEquals(true, medicamentoDAO.actualizar(medicamento));
+		assertTrue(medicamentoDAO.actualizar(medicamento));
 		
 		medicamentoDAO.borrar(medicamento);
 	}
@@ -99,9 +102,13 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		dao.MedicamentoDAOImpl medicamentoDAO = new dao.MedicamentoDAOImpl();
 		
+		assertTrue(medicamentoDAO.buscar("ParacetamolTest") == null);
+		
 		medicamentoDAO.guardar(medicamento);
 		
-		assertEquals(true, medicamentoDAO.borrar(medicamento));
+		assertTrue(medicamentoDAO.borrar(medicamento));
+		
+		assertTrue(medicamentoDAO.buscar("ParacetamolTest") != null);
 	}
 	
 	@Override
@@ -145,6 +152,6 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 			}
 		}
 		
-		assertEquals(true, get1 && get2);
+		assertTrue(get1 && get2);
 	}
 }
