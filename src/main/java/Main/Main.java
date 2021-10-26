@@ -27,8 +27,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import dao.JCCPokemonJAXB;
 import extra.Ejer7;
-import modelo.JCCPokemon;
-import modelo.Pokemon;
+import modelo.*;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -43,8 +42,6 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import modelo.Empleado;
-import modelo.Empresa;
 
 class Main {
 
@@ -53,8 +50,6 @@ class Main {
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
 	
 	public static void main(String[] args) {
-		System.out.println(System.getProperty("user.dir"));
-		
 		// Ejercicio 5
 		ejer5();
 		

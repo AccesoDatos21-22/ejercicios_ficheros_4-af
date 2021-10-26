@@ -1,8 +1,10 @@
 package modelo;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
-public class Medicamento {
+public class Medicamento implements Serializable {
 	public final static float IVA = 0.04f;
 	
 	private String nombre; // tamaño 30, 60 bytes
@@ -35,6 +37,9 @@ public class Medicamento {
 	
 	public void setPrecio(double precio) {
 		DecimalFormat df = new DecimalFormat("#.##");
+		DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+		dfs.setDecimalSeparator('.');
+		df.setDecimalFormatSymbols(dfs);
 		
 		this.precio = Double.valueOf(df.format(precio));
 	}
@@ -85,12 +90,14 @@ public class Medicamento {
 	
 	@Override
 	public String toString() {
+		DecimalFormat df = new DecimalFormat("#.00");
+		
 		return
 						 "Código: " + cod
-				+ "\n" + "Nombre: " + nombre
-				+ "\n" + "Precio: " + precio + "€"
-				+ "\n" + "Stock: " + stock
-				+ "\n" + "Proveedor: " + codProveedor
-				+ "\n";
+				+ "\r\n" + "Nombre: " + nombre
+				+ "\r\n" + "Precio: " + df.format(precio) + "€"
+				+ "\r\n" + "Stock: " + stock
+				+ "\r\n" + "Proveedor: " + codProveedor
+				+ "\r\n";
 	}
 }
