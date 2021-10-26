@@ -2,14 +2,14 @@ package dao;
 
 import jdk.swing.interop.SwingInterOpUtils;
 import modelo.Medicamento;
-//import org.junit.Test;
+import org.junit.Test;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class MedicamentoDAOImpl implements MedicamentoDAO  {
 	private static ByteArrayOutputStream escribir=null;
@@ -54,7 +54,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		return true;
 	}
 	
-	/*@Test
+	@Test
 	public static void testGuardar() {
 		Medicamento medicamento = new Medicamento();
 		medicamento.setNombre("ParacetamolTest");
@@ -71,7 +71,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		
 		medicamentoDAO.borrar(medicamento);
 	}
-	*/
+
 	@Override
 	public Medicamento buscar(String nombre) {
 		boolean existe = miLista.contains("nombre :"+nombre);
@@ -83,7 +83,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 
 		return null;
 	}
-	/*
+
 	@Test
 	public static void testBuscar() {
 		Medicamento medicamento = new Medicamento();
@@ -103,14 +103,14 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		
 		medicamentoDAO.borrar(medicamento);
 	}
-	*/
+
 	@Override
 	public boolean actualizar(Medicamento medicamento) {
 	miLista.add(medicamento);
 	guardar(medicamento);
 		return false;
 	}
-	/*
+
 	@Test
 	public static void testActualizar() {
 		Medicamento medicamento = new Medicamento();
@@ -130,13 +130,13 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		
 		medicamentoDAO.borrar(medicamento);
 	}
-	*/
+
 	@Override
 	public boolean borrar(Medicamento medicamento) {
 		miLista.remove(medicamento);
 		return false;
 	}
-	/*
+
 	@Test
 	public static void testBorrar() {
 		Medicamento medicamento = new Medicamento();
@@ -154,7 +154,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		
 		assertEquals(true, medicamentoDAO.borrar(medicamento));
 	}
-	*/
+
 	@Override
 	public List<Medicamento> leerTodos() {
 
@@ -175,7 +175,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		}
 		return miLista;
 	}
-	/*
+
 	@Test
 	public static void testLeerTodos() {
 		Medicamento medicamento = new Medicamento();
@@ -213,5 +213,5 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 		}
 		
 		assertEquals(true, get1 && get2);
-	}*/
+	}
 }

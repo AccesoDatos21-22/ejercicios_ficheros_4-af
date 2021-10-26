@@ -1,5 +1,5 @@
 package modelo;
-/*
+
 import java.util.Date;
 
 import jakarta.xml.bind.annotation.XmlElement;
@@ -81,5 +81,5 @@ public class Empleado {
     
  
 }
-*/
+
 
