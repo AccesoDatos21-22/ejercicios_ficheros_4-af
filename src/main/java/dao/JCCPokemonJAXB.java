@@ -46,7 +46,7 @@ public class JCCPokemonJAXB implements JCCPokemonDAO {
 				if (pokemonNode.getNodeType() == Node.ELEMENT_NODE) {
 					Pokemon pokemon = new Pokemon();
 					
-					Element element = (Element)pokemonNode; // tipo de nodo
+					Element element = (Element)pokemonNode;
 					
 					pokemon.setNombre(getNode("Nombre", element));
 					pokemon.setVida(getNodeInt("Vida", element));

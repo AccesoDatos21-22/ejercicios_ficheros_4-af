@@ -26,6 +26,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import dao.JCCPokemonJAXB;
+import extra.Ejer7;
 import modelo.JCCPokemon;
 import modelo.Pokemon;
 import org.w3c.dom.DOMImplementation;
@@ -50,11 +51,21 @@ class Main {
 	private static final String JAXB_XML_FILE = "xml/EmpresaJAXB.xml";
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
-
+	
 	public static void main(String[] args) {
 		System.out.println(System.getProperty("user.dir"));
 		
 		// Ejercicio 5
+		ejer5();
+		
+		// Padding
+		System.out.println();
+		
+		// Ejercicio 7
+		ejer7();
+	}
+	
+	private static void ejer5() {
 		JCCPokemon pokemons = new JCCPokemon();
 		
 		Calendar calendar = new GregorianCalendar(2013,2,20);
@@ -106,6 +117,13 @@ class Main {
 		// ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
+	}
+	
+	private static void ejer7() {
+		String villalba = "https://api.openweathermap.org/data/2.5/forecast/daily?q=Villalba&units=metric&mode=xml&appid=479092b77bcf850403cb2aeb1a302425";
+		
+		Ejer7 time = new Ejer7();
+		time.readClimate(villalba);
 	}
 
 	private static void ejemploEscribirXSTREAM() {
