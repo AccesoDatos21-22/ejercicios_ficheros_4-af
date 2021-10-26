@@ -16,7 +16,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 	@Test
 	public static void testGuardar() {
 		Medicamento medicamento = new Medicamento();
-		medicamento.setNombre("ParacetamolTest");
+		medicamento.setNombre("GuardarParacetamolTest");
 		medicamento.setPrecio(1.30D);
 		medicamento.setCod(12);
 		medicamento.setStock(5);
@@ -27,6 +27,8 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		dao.MedicamentoDAOImpl medicamentoDAO = new dao.MedicamentoDAOImpl();
 		
 		assertTrue(medicamentoDAO.guardar(medicamento));
+		
+		assertTrue(medicamentoDAO.buscar("GuardarParacetamolTest") != null);
 		
 		medicamentoDAO.borrar(medicamento);
 	}
@@ -39,7 +41,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 	@Test
 	public static void testBuscar() {
 		Medicamento medicamento = new Medicamento();
-		medicamento.setNombre("ParacetamolTest");
+		medicamento.setNombre("BuscarParacetamolTest");
 		medicamento.setPrecio(1.30D);
 		medicamento.setCod(12);
 		medicamento.setStock(5);
@@ -51,8 +53,8 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.guardar(medicamento);
 		
-		boolean mustBeTrue1 = medicamentoDAO.buscar("ParacetamolTest") != null;
-		boolean mustBeTrue2 = medicamentoDAO.buscar("ParacetamolDoesNotExist") == null;
+		boolean mustBeTrue1 = medicamentoDAO.buscar("BuscarParacetamolTest") != null;
+		boolean mustBeTrue2 = medicamentoDAO.buscar("BuscarParacetamolDoesNotExist") == null;
 		
 		assertTrue(mustBeTrue1 && mustBeTrue2);
 		
@@ -67,7 +69,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 	@Test
 	public static void testActualizar() {
 		Medicamento medicamento = new Medicamento();
-		medicamento.setNombre("ParacetamolTest");
+		medicamento.setNombre("ActualizarParacetamolTest");
 		medicamento.setPrecio(1.30D);
 		medicamento.setCod(12);
 		medicamento.setStock(5);
@@ -79,7 +81,11 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		medicamentoDAO.guardar(medicamento);
 		
+		medicamento.setStock(8);
+		
 		assertTrue(medicamentoDAO.actualizar(medicamento));
+		
+		assertTrue(medicamentoDAO.buscar("ActualizarParacetamolTest").getStock() == 8);
 		
 		medicamentoDAO.borrar(medicamento);
 	}
@@ -92,7 +98,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 	@Test
 	public static void testBorrar() {
 		Medicamento medicamento = new Medicamento();
-		medicamento.setNombre("ParacetamolTest");
+		medicamento.setNombre("BorrarParacetamolTest");
 		medicamento.setPrecio(1.30D);
 		medicamento.setCod(12);
 		medicamento.setStock(5);
@@ -102,13 +108,13 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		
 		dao.MedicamentoDAOImpl medicamentoDAO = new dao.MedicamentoDAOImpl();
 		
-		assertTrue(medicamentoDAO.buscar("ParacetamolTest") == null);
+		medicamentoDAO.buscar("BorrarParacetamolTest");
 		
 		medicamentoDAO.guardar(medicamento);
 		
 		assertTrue(medicamentoDAO.borrar(medicamento));
 		
-		assertTrue(medicamentoDAO.buscar("ParacetamolTest") != null);
+		assertTrue(medicamentoDAO.buscar("BorrarParacetamolTest") != null);
 	}
 	
 	@Override
@@ -119,7 +125,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 	@Test
 	public static void testLeerTodos() {
 		Medicamento medicamento = new Medicamento();
-		medicamento.setNombre("ParacetamolTest");
+		medicamento.setNombre("LeerTodosParacetamolTest");
 		medicamento.setPrecio(1.30D);
 		medicamento.setCod(12);
 		medicamento.setStock(5);
@@ -128,7 +134,7 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		medicamento.setCodProveedor(1234);
 		
 		Medicamento medicamento2 = new Medicamento();
-		medicamento2.setNombre("Algidol");
+		medicamento2.setNombre("LeerTodosAlgidolTest");
 		medicamento2.setPrecio(1.20D);
 		medicamento2.setCod(10);
 		medicamento2.setStock(4);
@@ -153,5 +159,8 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
 		}
 		
 		assertTrue(get1 && get2);
+		
+		medicamentoDAO.borrar(medicamento);
+		medicamentoDAO.borrar(medicamento2);
 	}
 }
