@@ -27,6 +27,10 @@ import dao.FarmaciaDOM;
 import dao.FarmaciaXSTREAM;
 import dao.JCCPokemonJAXB;
 import dao.MedicamentoDAOImpl;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 import modelo.*;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
@@ -178,7 +182,7 @@ class Main {
 		f.leer();
 
 	}
-	/*
+
 	private static void ejemploEscribirXSTREAM() {
 
 		try {
@@ -251,7 +255,7 @@ class Main {
         }
 
 	}
-*/
+
 	private static void ejemploLeerDOM() {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
@@ -347,7 +351,7 @@ class Main {
 		raiz.appendChild(elem);
 		elem.appendChild(text);
 	}
-/*
+
 	private static void ejemploJaxb() {
 		long time = System.currentTimeMillis();
 		System.out.println("Inicio: " + new Date(time));
@@ -396,5 +400,5 @@ class Main {
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 }

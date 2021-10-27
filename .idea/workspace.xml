@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fbf171f-83b9-4552-af5d-61f69a670adb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.buildship.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/FarmaciaDOM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/FarmaciaDOM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/FarmaciaXSTREAM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/FarmaciaXSTREAM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dao/MedicamentoDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dao/MedicamentoDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/modelo/Farmacia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/modelo/Farmacia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/modelo/Pokemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/modelo/Pokemon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FarmaciaDOM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FarmaciaDOM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FarmaciaXSTREAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FarmaciaXSTREAM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MedicamentoDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Farmacia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Farmacia.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
