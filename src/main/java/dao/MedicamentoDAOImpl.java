@@ -17,10 +17,10 @@ public class MedicamentoDAOImpl implements MedicamentoDAO  {
 	private static byte []array=null;
 	private static ArrayList<Medicamento> miLista = null;
 	@Override
-	public boolean guardar(Medicamento medicamento) {
+	public boolean guardar(Medicamento medicamento)  {
 		RandomAccessFile fichero =null;
 		try {
-			File f = new File("C:\\Users\\Fernando\\textos\\d.txt");
+			File f = new File("C:\\Users\\Alumno\\textos\\d.txt");
 
 			if(!f.exists()){
 				f.createNewFile();

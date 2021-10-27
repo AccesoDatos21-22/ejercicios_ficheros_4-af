@@ -167,8 +167,16 @@ class Main {
 			e.printStackTrace();
 		}
 
-		//FarmaciaDOM.leer(Path.of("C:\\Users\\Fernando\\textos\\Medicamentos.xml"));
-		FarmaciaXSTREAM.guardad(medicamento);
+		//FarmaciaDOM.leer(Path.of("C:\\Users\\Alumno\\textos\\Medicamentos.xml"));
+		FarmaciaXSTREAM f  = new FarmaciaXSTREAM();
+
+		f.guardarMedicamento(medicamento);
+		f.leerMedicamento();
+		Farmacia far = new Farmacia();
+		far.guardar(medicamento);
+		f.guardar(far);
+		f.leer();
+
 	}
 	/*
 	private static void ejemploEscribirXSTREAM() {

@@ -125,7 +125,7 @@ public class FarmaciaDOM{
 			//Generate XML
 			Source source = new DOMSource(document);
 			//Indicamos donde lo queremos almacenar
-			Result result = new StreamResult(new java.io.File("C:\\Users\\Fernando\\textos\\"+name+".xml")); //nombre del archivo
+			Result result = new StreamResult(new java.io.File("C:\\Users\\Alumno\\textos\\"+name+".xml")); //nombre del archivo
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			System.out.println(result);
 			System.out.println();
