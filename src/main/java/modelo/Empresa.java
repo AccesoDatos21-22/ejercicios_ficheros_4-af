@@ -15,8 +15,8 @@ import jakarta.xml.bind.annotation.XmlType;
  * de la clase).Con XmlType y la propiedad �propOrder� cambiamos el orden en que
  * se escribir�n los atributos en el xml resultante.Finalmente usando XmlElement
  * en el setter de los atributos que nos interesa que se incluyan en el xml,
- * marcamos los campos de nuestro inter�s.
- */
+ * marcamos los campos de nuestro inter�s.*/
+
 
 @XmlRootElement(name="Empresa")
 @XmlType(propOrder = { "nombreEmpresa", "idEmpresa", "direccion",
