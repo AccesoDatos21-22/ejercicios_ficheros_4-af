@@ -6,9 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,6 +23,17 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import dao.FarmaciaDOM;
+import dao.FarmaciaXSTREAM;
+import dao.JCCPokemonJAXB;
+
+import dao.MedicamentoDAOImpl;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+
+import modelo.*;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -32,25 +44,169 @@ import org.xml.sax.SAXException;
 
 import com.thoughtworks.xstream.XStream;
 
+import extra.Ejer7;
+/*
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import modelo.Empleado;
-import modelo.Empresa;
-
+*/
+import static dao.FarmaciaXSTREAM.*;
 class Main {
 
 	private static final String JAXB_XML_FILE = "xml/EmpresaJAXB.xml";
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
 	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
+	
 
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		System.out.println(System.getProperty("user.dir"));
+		
+		// Ejercicio 5
+		ejer5();
+		
+		// Padding
+		System.out.println();
+		
+		// Ejercicio 7
+		ejer7();
+		
+		fernando();
+	}
+	
+	private static void ejer5() {
+		JCCPokemon pokemons = new JCCPokemon();
+		
+		Calendar calendar = new GregorianCalendar(2013, 2, 20);
+		pokemons.setFechaLanzamiento(calendar.getTime());
+		pokemons.setNumCartas(3);
+		
+		Pokemon pikachu = new Pokemon();
+		pikachu.setNombre("Pikachu");
+		pikachu.setVida(3);
+		pikachu.setVelocidad(2);
+		pikachu.setAtaque(4);
+		pikachu.setDefensa(2);
+		
+		pokemons.add(pikachu);
+		
+		Pokemon raichu = new Pokemon();
+		raichu.setNombre("Raichu");
+		raichu.setVida(30);
+		raichu.setVelocidad(20);
+		raichu.setAtaque(40);
+		raichu.setDefensa(20);
+		
+		pokemons.add(raichu);
+		
+		Pokemon charmander = new Pokemon();
+		charmander.setNombre("Charmander");
+		charmander.setVida(40);
+		charmander.setVelocidad(50);
+		charmander.setAtaque(10);
+		charmander.setDefensa(10);
+		
+		pokemons.add(charmander);
+		
+		JCCPokemonJAXB jaxb = new JCCPokemonJAXB();
+		
+		jaxb.guardar(pokemons);
+		
+		JCCPokemon pokemons2 = jaxb.leer();
+		
+		System.out.println("Fecha de lanzamiento=" + pokemons2.getFechaLanzamientoString());
+		System.out.println("Numero de cartas=" + pokemons2.getNumCartas());
+		
+		for (Pokemon pokemon : pokemons2.getPokemones()) {
+			System.out.println(pokemon.toString());
+		}
+	}
+	
+	private static void fernando() {
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
 		// ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
+		Medicamento medicamento = new Medicamento();
+		medicamento.setNombre("ibunoTest");
+		medicamento.setPrecio(2.90);
+		medicamento.setCod(112);
+		medicamento.setStock(5);
+		medicamento.setStockMaximo(7);
+		medicamento.setStockMinimo(3);
+		medicamento.setCodProveedor(1234);
+		MedicamentoDAOImpl medi = new MedicamentoDAOImpl();
+		List<Medicamento> miLista = medi.leerTodos();
+		for (int i = 0; i < miLista.size(); i++) {
+			System.out.println("Medicamentos[" + i + "] = " + miLista.get(i));
+		}
+		medi.actualizar(medicamento);
+		medi.actualizar(medicamento);
+		medi.actualizar(medicamento);
+		medi.actualizar(medicamento);
+		medi.borrar(medicamento);
+		System.out.println("Escribe medicamento para comprobar si esta en stock");
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		medi.buscar(teclado.nextLine());
+
+
+	for (int i = 0; i < miLista.size(); i++) {
+			System.out.println("Medicamentos[" + i + "] = " + miLista.get(i));
+		}
+		medi.borrar(medicamento);
+		for (int i = 0; i < miLista.size(); i++) {
+			System.out.println("Medicamentos[" + i + "] = " + miLista.get(i));
+		}
+		String nombre_archivo = "Medicamentos";
+		ArrayList cod = new ArrayList();
+		ArrayList nom = new ArrayList();
+		ArrayList pre = new ArrayList();
+		ArrayList stock = new ArrayList();
+		ArrayList prov = new ArrayList();
+
+		cod.add("10");
+		nom.add("iburpofeno");
+		pre.add("1.2");
+		stock.add("14");
+		prov.add("1234");
+
+		cod.add("11");
+		nom.add("paracetamol");
+		pre.add("1.5");
+		stock.add("23");
+		prov.add("1224");
+
+
+
+
+
+		try {
+			FarmaciaDOM.guardar(nombre_archivo, cod, nom,pre,stock,prov);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		//FarmaciaDOM.leer(Path.of("C:\\Users\\Alumno\\textos\\Medicamentos.xml"));
+		FarmaciaXSTREAM f  = new FarmaciaXSTREAM();
+
+		f.guardarMedicamento(medicamento);
+		f.leerMedicamento();
+		Farmacia far = new Farmacia();
+		far.guardar(medicamento);
+		f.guardar(far);
+		f.leer();
+
+	}
+	
+	private static void ejer7() {
+		String villalba = "https://api.openweathermap.org/data/2.5/forecast/daily?q=Villalba&units=metric&mode=xml&appid=479092b77bcf850403cb2aeb1a302425";
+		
+		Ejer7 time = new Ejer7();
+		time.readClimate(villalba);
 	}
 
 	private static void ejemploEscribirXSTREAM() {
